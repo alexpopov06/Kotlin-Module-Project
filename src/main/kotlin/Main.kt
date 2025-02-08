@@ -108,20 +108,5 @@ fun showNotes(archive: Archive){
             i -> println("Название заметки ${i.title}. Содержание: ${i.content}")
     }
 }
-data class Archive(val name: String, val notes: MutableList<Note> = mutableListOf())
 
-data class Note(val title: String, val content: String)
 
-object MenuHelper {
-    fun getUserOption(prompt: String, minOption: Int, maxOption: Int): Int {
-        while (true) {
-            println(prompt)
-            val input = readLine()
-            val option = input?.toIntOrNull()
-            if (option != null && option in minOption..maxOption) {
-                return option
-            }
-            println("Некорректный ввод! Пожалуйста, введите число от $minOption до $maxOption.")
-        }
-    }
-}
