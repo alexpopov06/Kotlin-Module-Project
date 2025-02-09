@@ -96,11 +96,19 @@ fun createNote(archive: Archive) {
         }else {break}
 
     }
+    while (true){
+        println("Введите содержание заметки")
+        val content = readLine() ?: ""
+        if (content.isEmpty()){
+            println("заметка не может быть пустой")
+            continue
+        }else{
+            archive.notes.add(Note(title, content))
+            println("Заметка \"$title\" добавлена в архив \"${archive.name}\".")
+            break
+        }
 
-    println("Введите содержание заметки")
-    val content = readLine() ?: ""
-    archive.notes.add(Note(title, content))
-    println("Заметка \"$title\" добавлена в архив \"${archive.name}\".")
+    }
 }
 
 fun showNotes(archive: Archive){
